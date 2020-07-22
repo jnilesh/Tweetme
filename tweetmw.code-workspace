@@ -1,11 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "..\\..\\react\\news"
-		},
-		{
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.venvPath": "C:\\dev\\tweetme2\\venv"
+	}
 }
