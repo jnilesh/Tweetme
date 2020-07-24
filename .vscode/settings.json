@@ -1,3 +1,4 @@
 {
-    "python.venvPath": "C:\\dev\\tweetme2\\venv"
+    "python.venvPath": "C:\\dev\\tweetme2\\venv",
+    "python.pythonPath": "venv\\Scripts\\python.exe"
 }
