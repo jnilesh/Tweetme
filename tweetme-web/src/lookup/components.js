@@ -8,7 +8,7 @@ export function loadTweets(callback) {
     xhr.responseType = responseType
     xhr.open(method, url)
     xhr.onload = function() {
-      callback(xhr.response, xhr.status)
+      callback(xhr.response, xhr.status) 
         
       
     }
