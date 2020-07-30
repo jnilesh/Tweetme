@@ -22,7 +22,8 @@ def logout_view(request, *args,**kwargs):
         return redirect("/login")
     context= {
         "form":None,
-        "btn_label": "Logout?",
+        "description": "Are you sure you want to logout?",
+        "btn_label": "Click to Confirm",
         "title": "Logout"
     }
     return render(request,"accounts/auth.html",context)
@@ -30,7 +31,13 @@ def logout_view(request, *args,**kwargs):
 def register_view(request, *arge,**kwargs):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
-        print(form.cleaned_data)
+        user = form.save(commit=True)
+        user.set_password(form.cleaned_data.get("password1"))
+        login(request,user)
+        return redirect("/")
+        # print(form.cleaned_data)
+        # username= form.cleaned_data.get("username")
+         
     context= {
         "form":form,
         "btn_label": "Register",
