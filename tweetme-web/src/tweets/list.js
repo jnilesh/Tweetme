@@ -1,7 +1,6 @@
 import React, {useEffect, useState}  from 'react'
 
-import {
-  apiTweetList} from './lookup'
+import {apiTweetList} from './lookup'
 
 import {Tweet} from './detail'
 

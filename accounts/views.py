@@ -4,9 +4,36 @@ from django.contrib.auth import login,logout
 
 # Create your views here.
 def login_view(request, *arge,**kwargs):
-    from = AuthenticationForm(request, data=request.POST or None)
+    form = AuthenticationForm(request, data=request.POST or None)
     if form.is_valid():
         user_=form.get_user()
         login(request,user_)
         return redirect("/")
-    return render(request,"form.html",{"form":form})
+    context= {
+        "form":form,
+        "btn_label": "Login",
+        "title": "Login"
+    }
+    return render(request,"accounts/auth.html",context)
+
+def logout_view(request, *args,**kwargs):
+    if request.method == "POST":
+        logout(request)
+        return redirect("/login")
+    context= {
+        "form":None,
+        "btn_label": "Logout?",
+        "title": "Logout"
+    }
+    return render(request,"accounts/auth.html",context)
+
+def register_view(request, *arge,**kwargs):
+    form = UserCreationForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+    context= {
+        "form":form,
+        "btn_label": "Register",
+        "title": "Register"
+    }
+    return render(request,"accounts/auth.html",context)

@@ -1,8 +1,6 @@
 import React from 'react'
 
-import {
-  apiTweetAction} from './lookup'
-
+import {apiTweetAction} from './lookup'
 
 export function ActionBtn(props) {
     const {tweet, action, didPerformAction} = props
