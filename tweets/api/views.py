@@ -37,7 +37,6 @@ def tweet_list_view(request, *args, **kwargs):
     username = request.GET.get('username')
     if username != None:
         qs = qs.by__username(username)
-    serializer = TweetSerializer(qs, many =True)
     return get_paginated_queryset_response(qs,request)
 
 @api_view(['GET'])

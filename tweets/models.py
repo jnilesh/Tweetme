@@ -9,7 +9,7 @@ User = settings.AUTH_USER_MODEL
 class TweetLike(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tweet = models.ForeignKey("Tweet",on_delete=models.CASCADE)
-    timestamp = models.DateField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user
@@ -27,7 +27,7 @@ class TweetQuerySet(models.QuerySet):
         return self.filter(
             Q(user__id__in=followed_users_id) |
             Q(user=user)
-            ).distict().order_by("-timestamp")
+            ).distinct().order_by("-timestamp")
 
 
 class TweetManager(models.Manager):
