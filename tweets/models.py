@@ -43,8 +43,8 @@ class Tweet(models.Model):
     likes = models.ManyToManyField(User, related_name='tweet_user', blank=True, through=TweetLike)
     content = models.TextField(blank=True,null=True)
     image = models.FileField(upload_to='images/', blank=True, null=True )
-    timestamp = models.DateField(auto_now_add=True)
-
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
     objects = TweetManager()
     
     def __str__(self):
