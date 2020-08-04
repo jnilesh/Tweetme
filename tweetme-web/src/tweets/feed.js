@@ -23,11 +23,9 @@ export function FeedList(props) {
             setNextUrl(response.next)
             setTweetsInit(response.results)
             setTweetsDidSet(true)
-          } else {
-            alert("There was an error")
           }
         }
-        apiTweetFeed(props.username, handleTweetListLookup)
+        apiTweetFeed(handleTweetListLookup)
       }
     }, [tweetsInit, tweetsDidSet, setTweetsDidSet, props.username])
 
@@ -51,8 +49,6 @@ export function FeedList(props) {
             setTweetsInit(newTweets)
             setTweets(newTweets)
             
-          } else {
-            alert("There was an error")
           }
         }
         apiTweetFeed( handleLoadNextResponse, nextUrl)
